@@ -1,0 +1,19 @@
+<div fxLayout="row">
+  <div fxFlex.gt-sm="50%">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Time Delay (Minute)</mat-card-title>
+        <mat-card-subtitle>เวลาที่มิเตอร์ไฟฟ้าส่งค่าไฟฟ้าส่งให้ Server</mat-card-subtitle>
+          <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="30" (click)="time(30)">30</mat-button-toggle>
+              <mat-button-toggle value="45" (click)="time(45)">45</mat-button-toggle>
+              <mat-button-toggle value="60" (click)="time(60)">60</mat-button-toggle>
+            </mat-button-toggle-group>
+        <p>
+          <br>
+          Options selected: <strong>{{userDetails}}</strong> Minute
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

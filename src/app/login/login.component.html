@@ -1,0 +1,40 @@
+<link rel="stylesheet" type="text/css" href="/assets/css/mainLogIn.css">
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('/assets/img/bg-01.jpg');">
+    <div class="wrap-login100 p-t-30 p-b-50">
+      <span class="login100-form-title p-b-41">
+        Account Sign In
+      </span>
+      <form class="login100-form validate-form p-b-33 p-t-5" #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+
+        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+          <input class="input100" type="text" name="username" #username="ngModel" [(ngModel)]="model.username" placeholder="Username"
+          required [ngClass]="{'invalid-textbox' :signInForm.submitted && !username.valid }" >
+          <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+          <div *ngIf="signInForm.submitted && username.errors?.pattern">
+            <label class="validation-message">Invalid username address.</label>
+          </div>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <input class="input100" type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password"
+          required minlength="4" [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+          <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+          <div *ngIf="signInForm.submitted && password.errors?.minlength">
+            <label class="validation-message">Minimum 4 characters.</label>
+          </div>
+        </div>
+
+        <div class="container-login100-form-btn m-t-32">
+          <button class="login100-form-btn" type="submit" value="Sign In">
+            Sign In
+          </button>
+        </div>
+
+      </form>
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<mat-card-content>
+  <div>
+    <!-- <img src="/assets/img/users.png" id="icon" alt="User Icon" /> -->
+  </div>
+  <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+    <input type="text" #Maddr="ngModel" [(ngModel)]="meterService.selectedUser.Maddr" name="Maddr"
+      placeholder="User Name" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !Maddr.valid }">
+    <div *ngIf="signUpForm.submitted && !Maddr.valid">
+      <label class="validation-message">This field is required.</label>
+    </div>
+    <input type="text" #room="ngModel" [(ngModel)]="meterService.selectedUser.room" name="room"
+    placeholder="User Name" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !room.valid }">
+  <div *ngIf="signUpForm.submitted && !room.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+    <input type="submit" value="Sign Up" (click)='ngOnInit()'>
+  </form>
+
+  <!-- Success message -->
+  <div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+    
+  </div>
+</mat-card-content>

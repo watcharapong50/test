@@ -1,0 +1,10 @@
+
+<span  *ngIf="userDetails" class="ti-angle-down font-14 m-l-5"> {{userDetails.firstname.toUpperCase()}} {{userDetails.lastname.toUpperCase()}} </span>
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/users/1.jpg" alt="user" class="profile-pic"> </button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <button mat-menu-item routerLink="/profile">
+        <mat-icon>account_box</mat-icon> Profile </button> <!--{{userDetails.username}}-->
+    <button mat-menu-item type="button" (click)="onLogout()" value="Logout">
+        <mat-icon>exit_to_app</mat-icon> Sign Out </button>
+</mat-menu>
+

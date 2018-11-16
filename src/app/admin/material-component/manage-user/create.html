@@ -1,0 +1,47 @@
+<form [formGroup]="userService.form" class="normal-form" #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <h5>Username : {{data.username}}</h5>
+        <input [(ngModel)]="data.username" type="hidden" formControlName="username">
+        <mat-form-field >
+          <input [(ngModel)]="data.firstname" formControlName="firstname" value="{{data.firstname.substring(0,1).toUpperCase()}}{{data.firstname.substring(1,data.firstname. length)}}"
+            matInput placeholder="First Name*">
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="data.lastname" formControlName="lastname" value="{{data.lastname.substring(0,1).toUpperCase()}}{{data.lastname.substring(1,data.lastname. length)}}"
+            matInput placeholder="Last Name*">
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="data.email" formControlName="email" value="{{data.email}}" matInput placeholder="Email*">
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="data.room" formControlName="room" value="{{data.room}}" matInput placeholder="Room*">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+          <mat-radio-group [(ngModel)]="data.permission" formControlName="permission">
+            <mat-radio-button value="genaral">General</mat-radio-button>
+            <mat-radio-button value="admin">Admin</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <!-- <mat-form-field>
+          <mat-select formControlName="Maddr" placeholder="Electric Meter">
+            <mat-option value="Don't Have">Don't Have</mat-option>
+            <ng-container *ngFor="let department of departments">
+              <mat-option value="{{department.Maddr}}">{{department.Maddr}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field> -->
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" value="Sign Up" type="submit" >Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Close</button>
+        </div>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form> 
